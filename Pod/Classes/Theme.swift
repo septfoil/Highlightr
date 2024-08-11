@@ -27,7 +27,11 @@ private typealias RPThemeDict = [String: [AnyHashable: AnyObject]]
 private typealias RPThemeStringDict = [String:[String:String]]
 
 /// Theme parser, can be used to configure the theme parameters. 
-open class Theme {
+open class Theme: Equatable {
+    public static func == (lhs: Theme, rhs: Theme) -> Bool {
+        lhs.theme == rhs.theme && lhs.lightTheme == rhs.lightTheme
+    }
+    
     open var theme : String
     open var lightTheme : String!
     
